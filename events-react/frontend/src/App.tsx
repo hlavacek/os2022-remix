@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Events from './pages/Events';
+import Event from './pages/Event';
 // import Login from './pages/Login';
 
 const App = () => (
@@ -11,6 +12,7 @@ const App = () => (
     <Routes>
       {/* <Route path="/" element={<Login />} /> */}
       <Route path="/" element={<Events />} />
+      <Route path="/event/:id" element={<Event />} />
     </Routes>
   </div>
 );
