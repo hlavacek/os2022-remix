@@ -1,12 +1,14 @@
 import React, { ChangeEvent, useState } from 'react';
-import useSWR from 'swr';
-import { useParams } from 'react-router-dom';
-// import { Event } from '../api/types';
+import useSWR, { useSWRConfig } from 'swr';
+import { Link, useParams } from 'react-router-dom';
 import fetcher, { register } from '../api/api';
+import { Registration } from '../api/types';
 
 const Events = () => {
   const { id } = useParams();
+  const { mutate } = useSWRConfig();
   const { data: eventForRegistration, error } = useSWR(`/api/events/${id}`, fetcher);
+  const { data: registrations, error: registrationError } = useSWR(`/api/events/${id}/registrations`, fetcher);
   const [name, setName] = useState<string>('');
 
   const handleNameChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -17,12 +19,15 @@ const Events = () => {
   const handleSubmit = async () => {
     if (id && name) {
       await register(id, name);
+      mutate(`/api/events/${id}/registrations`);
+      setName('');
     }
   };
 
   return (
     <div className="ml-10">
       {error && <span className="text-color-red">Failed to fetch event {id}</span>}
+      {registrationError && <span className="text-color-red">Failed to fetch event {id} registrations</span>}
       {eventForRegistration && (
         <div className="w-full">
           <h2 className="text-2xl font-bold underline">Register to {eventForRegistration.name}</h2>
@@ -43,6 +48,19 @@ const Events = () => {
           >
             Register
           </button>
+          <Link className="ml-2 text-blue-700" to="/">
+            Back to events
+          </Link>
+          {registrations?.length ? (
+            <div className="mt-3">
+              <h3 className="text-xl font-bold">Existing registrations {eventForRegistration.name}</h3>
+              <ul>
+                {registrations.map((registration: Registration) => (
+                  <li key={registration.id}>{registration.user}</li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
         </div>
       )}
     </div>

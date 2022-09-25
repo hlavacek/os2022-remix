@@ -15,7 +15,8 @@ const Events = () => {
       {data &&
         data.map((event: Event) => (
           <div key={event.id}>
-            <span>{event.name}</span>
+            <span className="font-bold">{event.name}</span>
+            <span className="ml-3">Registrations: {event.registrationCount}</span>
             <Link className="ml-4 text-blue-700" to={`/event/${event.id}`}>
               Register
             </Link>

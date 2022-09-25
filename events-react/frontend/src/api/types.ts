@@ -11,4 +11,5 @@ export interface Event {
   link: string;
   start: string;
   end: string;
+  registrationCount: number;
 }
