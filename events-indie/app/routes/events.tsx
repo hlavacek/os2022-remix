@@ -38,12 +38,15 @@ export default function EventsIndexPage() {
         {data &&
           data.events.map((event) => (
             <div key={event.id}>
-              <span className="font-bold">{event.name}</span>
+              <Link to={`./${event.id}`}>
+                <span className="font-bold">{event.name}</span>
+              </Link>
               <span className="ml-3">
                 Registrations: {event._count.registrations}
               </span>
             </div>
           ))}
+        <hr className="mt-8"/>
         <Outlet />
       </main>
     </div>
