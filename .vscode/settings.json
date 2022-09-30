@@ -24,6 +24,10 @@
       {
           "directory": "./events-react/api",
           "changeProcessCWD": true
+      },
+      {
+        "directory": "./events-indie",
+        "changeProcessCWD": true
       }
   ],
   "html.format.wrapLineLength": 120,
