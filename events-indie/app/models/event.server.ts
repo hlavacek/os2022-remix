@@ -1,3 +1,4 @@
+import type { Event } from "@prisma/client";
 import { prisma } from "~/db.server";
 
 export async function getEventsWithRegistrationCount() {
@@ -9,5 +10,14 @@ export async function getEventsWithRegistrationCount() {
         },
       },
     },
+  });
+}
+
+/**
+ * Get event by id
+ */
+export async function getEventById(id: Event["id"]) {
+  return prisma.event.findUnique({
+    where: { id },
   });
 }
