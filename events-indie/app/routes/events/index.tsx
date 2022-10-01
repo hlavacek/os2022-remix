@@ -20,7 +20,7 @@ export default function EventsIndexPage() {
 
   return (
     <main className="m-8 flex h-full flex-col bg-white">
-      <h2>Events</h2>
+      <h2 className="text-2xl font-bold">Events</h2>
       {data &&
         data.events.map((event) => (
           <div key={event.id}>
