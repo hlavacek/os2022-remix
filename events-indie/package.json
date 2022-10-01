@@ -22,7 +22,8 @@
     "typecheck": "tsc -b && tsc -b cypress",
     "validate": "run-p \"test -- --run\" lint typecheck test:e2e:run",
     "migrate:dev": "npx prisma migrate dev --name init",
-    "seed": "ts-node prisma/seed.ts"
+    "seed": "ts-node prisma/seed.ts",
+    "generate:prisma": "npx prisma generate"
   },
   "prettier": {},
   "eslintIgnore": [

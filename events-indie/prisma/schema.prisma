@@ -36,3 +36,20 @@ model Note {
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   userId String
 }
+
+model Event {
+  id            Int            @id @default(autoincrement())
+  name          String         @unique
+  description   String
+  link          String
+  start         DateTime
+  end           DateTime
+  registrations Registration[]
+}
+
+model Registration {
+  id      Int    @id @default(autoincrement())
+  user    String
+  event   Event  @relation(fields: [eventId], references: [id])
+  eventId Int
+}
