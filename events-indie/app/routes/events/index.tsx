@@ -1,6 +1,6 @@
 import type { LoaderArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
-import { Outlet, useLoaderData } from "@remix-run/react";
+import { Link, Outlet, useLoaderData } from "@remix-run/react";
 import { getEventsWithRegistrationCount } from "~/models/event.server";
 
 // have mock list of events to be displayed
@@ -20,7 +20,9 @@ export default function EventsIndexPage() {
       {data &&
         data.events.map((event) => (
           <div key={event.id}>
-            <span className="font-bold">{event.name}</span>
+            <Link to={`./${event.id}`}>
+              <span className="font-bold text-blue-800">{event.name}</span>
+            </Link>
             <span className="ml-3">
               Registrations: {event._count.registrations}
             </span>
