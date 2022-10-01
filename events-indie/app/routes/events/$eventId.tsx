@@ -23,7 +23,7 @@ export default function EventDetailsPage() {
 
   return (
     <main className="m-8 flex h-full flex-col bg-white">
-      <h3 className="text-2xl font-bold">{data.event.name}</h3>
+      <h2 className="text-2xl font-bold">{data.event.name}</h2>
       <p className="py-6">{data.event.description}</p>
     </main>
   );
