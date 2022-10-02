@@ -35,3 +35,19 @@ export async function createRegistration(
     return existingRegistration;
   }
 }
+
+/**
+ * Gets all registrations for an event
+ * @param eventId the ID of the event for which we should get the registrations
+ * @returns registrations for an event
+ */
+export async function getEventRegistrations(eventId: Event["id"]) {
+  return prisma.registration.findMany({
+    where: {
+      eventId,
+    },
+    orderBy: {
+      user: "asc",
+    },
+  });
+}
