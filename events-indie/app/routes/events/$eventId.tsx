@@ -1,6 +1,6 @@
 import { ActionFunction, LoaderArgs, redirect } from "@remix-run/node";
 import { json } from "@remix-run/node";
-import { Form, useLoaderData } from "@remix-run/react";
+import { Form, useActionData, useLoaderData } from "@remix-run/react";
 import invariant from "tiny-invariant";
 import { getEventById } from "~/models/event.server";
 import { createRegistration } from "~/models/registtration.server";
@@ -19,26 +19,46 @@ export async function loader({ params }: LoaderArgs) {
   });
 }
 
+type ActionData =
+  | {
+      name: null | string;
+      eventId: null | string;
+    }
+  | undefined;
+
 export const action: ActionFunction = async ({ request, params }) => {
   const formData = await request.formData();
 
   const name = formData.get("name");
   const eventIdString = params.eventId;
-  if (eventIdString && name) {
-    await createRegistration(+eventIdString, name as string);
+
+  const errors: ActionData = {
+    eventId: eventIdString ? null : "Event ID is required",
+    name: name ? null : "Name is required",
+  };
+
+  const hasErrors = Object.values(errors).some((errorMessage) => errorMessage);
+
+  if (hasErrors) {
+    return json<ActionData>(errors);
   }
 
+  await createRegistration(+(eventIdString || 0), name as string);
   return redirect("/events");
 };
 
 export default function EventDetailsPage() {
   const data = useLoaderData<typeof loader>();
+  const errors = useActionData();
 
   return (
     <main className="m-8 flex h-full flex-col bg-white">
       <h2 className="text-2xl font-bold">{data.event.name}</h2>
       <p className="py-6">{data.event.description}</p>
       <Form method="post">
+        {errors?.name ? (
+          <div className="text-red-600">{errors.name}</div>
+        ) : null}
         <input type="text" name="name" className="mr-2 rounded" />
         <button
           type="submit"
