@@ -1,8 +1,9 @@
-import type { LoaderArgs } from "@remix-run/node";
+import { ActionFunction, LoaderArgs, redirect } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { Form, useLoaderData } from "@remix-run/react";
 import invariant from "tiny-invariant";
 import { getEventById } from "~/models/event.server";
+import { createRegistration } from "~/models/registtration.server";
 
 export async function loader({ params }: LoaderArgs) {
   invariant(params.eventId, "eventId not found");
@@ -18,9 +19,17 @@ export async function loader({ params }: LoaderArgs) {
   });
 }
 
-export async function action() {
-  // TODO: implement action for storing registration
-}
+export const action: ActionFunction = async ({ request, params }) => {
+  const formData = await request.formData();
+
+  const name = formData.get("name");
+  const eventIdString = params.eventId;
+  if (eventIdString && name) {
+    await createRegistration(+eventIdString, name as string);
+  }
+
+  return redirect("/events");
+};
 
 export default function EventDetailsPage() {
   const data = useLoaderData<typeof loader>();
