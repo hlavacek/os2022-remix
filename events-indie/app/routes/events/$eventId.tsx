@@ -2,8 +2,12 @@ import { ActionFunction, LoaderArgs, redirect } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { Form, useActionData, useLoaderData } from "@remix-run/react";
 import invariant from "tiny-invariant";
+import RegistrationList from "~/components/RegistrationList";
 import { getEventById } from "~/models/event.server";
-import { createRegistration } from "~/models/registtration.server";
+import {
+  createRegistration,
+  getEventRegistrations,
+} from "~/models/registtration.server";
 
 export async function loader({ params }: LoaderArgs) {
   invariant(params.eventId, "eventId not found");
@@ -14,8 +18,12 @@ export async function loader({ params }: LoaderArgs) {
     throw new Response("Not Found", { status: 404 });
   }
 
+  // add registrations to the loader data
+  const registrations = await getEventRegistrations(+params.eventId);
+
   return json({
     event,
+    registrations,
   });
 }
 
@@ -55,6 +63,7 @@ export default function EventDetailsPage() {
     <main className="m-8 flex h-full flex-col bg-white">
       <h2 className="text-2xl font-bold">{data.event.name}</h2>
       <p className="py-6">{data.event.description}</p>
+      <h3 className="text-xl font-bold">New registration</h3>
       <Form method="post">
         {errors?.name ? (
           <div className="text-red-600">{errors.name}</div>
@@ -67,6 +76,8 @@ export default function EventDetailsPage() {
           Register
         </button>
       </Form>
+      <h3 className="text-xl font-bold">Registered users</h3>
+      <RegistrationList />
     </main>
   );
 }
