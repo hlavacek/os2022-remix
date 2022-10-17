@@ -1,14 +1,26 @@
 # Remix workshop
 
 ## 1. Introduction
-- what we are going to build
+
+* we have React/Express application that we want to rebuild in Remix to show major differences.
 
 ---
 
 ## 2. Setup
 
+Follow [Readme](README.md) to setup the project.
+
 ---
 ## 3. Remix overview
+
+* Remix is a full stack web framework
+* Focused on web standards and modern web app UX
+* Build around React Router (6) by people who developed React Router
+* Server rendered with client hydration (optional progressive enhancement)
+* Simple "mental model" - components, loaders, actions
+* Simple but also powerful error handling
+* Can also work completely without JS enabled on the client
+* Most important - it's fun to use! 
 
 ---
 ## 4. Adding events route
