@@ -131,7 +131,7 @@ Application is now running on <http://localhost:3000>. You are now ready to modi
 
 ## Continuing in the workshop
 
-The further steps for the workshop are documented in [presentation.md](presentation.md). The are also available as merge requests in this repository, to be able to see the changes required to follow the workshop:
+The further steps for the workshop are documented in [presentation.md](presentation.md). They are also available as merge requests in this repository, to be able to see the changes required to follow the workshop:
 
 - [01 - Create events routes](https://github.com/hlavacek/os2022-remix/pull/1)
 - [02 - Display list of events](https://github.com/hlavacek/os2022-remix/pull/2)
