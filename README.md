@@ -133,16 +133,16 @@ Application is now running on <http://localhost:3000>. You are now ready to modi
 
 The further steps for the workshop are documented in [presentation.md](presentation.md). They are also available as merge requests in this repository, to be able to see the changes required to follow the workshop:
 
-- [01 - Create events routes](https://github.com/hlavacek/os2022-remix/pull/1/files){:target="_blank"}
-- [02 - Display list of events](https://github.com/hlavacek/os2022-remix/pull/2/files){:target="_blank"}
-- [03 - Added prisma schema](https://github.com/hlavacek/os2022-remix/pull/4/files){:target="_blank"}
-- [04 - Load events](https://github.com/hlavacek/os2022-remix/pull/5/files){:target="_blank"}
-- [05 - Show event details](https://github.com/hlavacek/os2022-remix/pull/7/files){:target="_blank"}
-- [06 - Added simple form](https://github.com/hlavacek/os2022-remix/pull/8/files){:target="_blank"}
-- [07 - save registration](https://github.com/hlavacek/os2022-remix/pull/9/files){:target="_blank"}
-- [08 - form validation](https://github.com/hlavacek/os2022-remix/pull/10/files){:target="_blank"}
-- [09 - Show list of registrations](https://github.com/hlavacek/os2022-remix/pull/11/files){:target="_blank"}
-- [10 - Added error boundaries](https://github.com/hlavacek/os2022-remix/pull/12/files){:target="_blank"}
+- [01 - Create events routes](https://github.com/hlavacek/os2022-remix/pull/1/files)
+- [02 - Display list of events](https://github.com/hlavacek/os2022-remix/pull/2/files)
+- [03 - Added prisma schema](https://github.com/hlavacek/os2022-remix/pull/4/files)
+- [04 - Load events](https://github.com/hlavacek/os2022-remix/pull/5/files)
+- [05 - Show event details](https://github.com/hlavacek/os2022-remix/pull/7/files)
+- [06 - Added simple form](https://github.com/hlavacek/os2022-remix/pull/8/files)
+- [07 - save registration](https://github.com/hlavacek/os2022-remix/pull/9/files)
+- [08 - form validation](https://github.com/hlavacek/os2022-remix/pull/10/files)
+- [09 - Show list of registrations](https://github.com/hlavacek/os2022-remix/pull/11/files)
+- [10 - Added error boundaries](https://github.com/hlavacek/os2022-remix/pull/12/files)
 
 ## Contact
 
