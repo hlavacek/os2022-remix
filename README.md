@@ -32,6 +32,15 @@ Please clone this repository to your local machine. It will be used during the w
 - [events-indie](events-indie/)
   - Base Remix application created with the help of [indie stack](https://github.com/remix-run/indie-stack). This will be expanded during the workshop to showcase how Remix can be used to build such application
 
+### Deployed applications
+
+For the purpose of this workshop we have deployed both applications to <fly.io>. They can be accessed via the following URLs:
+
+- <https://events-react-os2022.fly.dev/event/1>
+  - The [events-react](./events-react/) application
+- <https://events-indie-os2022.fly.dev/>
+  - The [events-indie](./events-indie/) version of this application
+
 ### Starting standard single page application
 
 The standard single page application is implemented in the [events-react](events-react/) folder. As a first step of this workshop, we'll get this application running click through it.
@@ -104,7 +113,7 @@ Remix version of the application will be build on top of the [Indie Stack](https
     ```(bash)
     cp .env.example .env
     ```
-   
+
 3. Run DB setup
 
     ```(bash)
@@ -112,14 +121,33 @@ Remix version of the application will be build on top of the [Indie Stack](https
     ```
 
 4. Start the application in dev mode
-   
+
     ```(bash)
     npm run dev
     ```
 
 Application is now running on <http://localhost:3000>. You are now ready to modify it and build your own application on top of it.
 
+## Continuing in the workshop
+
+The further steps for the workshop are documented in [presentation.md](presentation.md). The are also available as merge requests in this repository, to be able to see the changes required to follow the workshop:
+
+- [01 - Create events routes](https://github.com/hlavacek/os2022-remix/pull/1)
+- [02 - Display list of events](https://github.com/hlavacek/os2022-remix/pull/2)
+- [03 - Added prisma schema](https://github.com/hlavacek/os2022-remix/pull/4)
+- [04 - Load events](https://github.com/hlavacek/os2022-remix/pull/5)
+- [05 - Show event details](https://github.com/hlavacek/os2022-remix/pull/7)
+- [06 - Added simple form](https://github.com/hlavacek/os2022-remix/pull/8)
+- [07 - save registration](https://github.com/hlavacek/os2022-remix/pull/9)
+- [08 - form validation](https://github.com/hlavacek/os2022-remix/pull/10)
+- [09 - Show list of registrations](https://github.com/hlavacek/os2022-remix/pull/11)
+- [10 - Added error boundaries](https://github.com/hlavacek/os2022-remix/pull/12)
+
 ## Contact
 
 - Vladimir Hlavacek - vladimir.hlavacek@accenture.com
 - Lukas Jusko - lukas.jusko@accenture.com
+
+## Disclaimer
+
+We are employees of Accenture. All the opinions presented in this workshop are our own and do not represent the opinions of our company. The content in the workshop is based on opensource content with the intent to promote [Remix.run](https://remix.run/) framework.
