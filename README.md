@@ -88,7 +88,36 @@ There are few simple steps to start the application if you have the [Prerequisit
 11. Once running, the application should open a browser directly on URL <http://localhost:3000>
 12. Your next task is to get more familiar with the application - click through it, try to register few users for an event and see the registrations.
 
-To Be Continued
+### Starting Remix application
+
+Remix version of the application will be build on top of the [Indie Stack](https://github.com/remix-run/indie-stack). The Indie Stack is a simple template for Remix applications, which provides a basic structure and some basic dependencies. It is a good starting point for any Remix application.
+
+1. Enter the repository and install dependencies
+
+    ```(bash)
+    cd events-indie
+    npm i
+    ```
+
+2. Setup .env file and change your session secret
+
+    ```(bash)
+    cp .env.example .env
+    ```
+   
+3. Run DB setup
+
+    ```(bash)
+    npm run setup
+    ```
+
+4. Start the application in dev mode
+   
+    ```(bash)
+    npm run dev
+    ```
+
+Application is now running on <http://localhost:3000>. You are now ready to modify it and build your own application on top of it.
 
 ## Contact
 
