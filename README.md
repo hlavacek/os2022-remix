@@ -9,7 +9,7 @@ Welcome to our [Openslava 2022](https://www.openslava.sk/2022/#/) workshop, show
 The following prerequisites are required to participate on the workshop or run the applications:
 
 - Standard laptop computer
-- [Git](https://git-scm.com/) client
+- [Git](https://git-scm.com/) client (not necessary, as you can also download the code directly from this github repository)
 - [NodeJS](https://nodejs.org/en/) - version 16.x should be sufficient, or use [Node Version Manager](https://github.com/nvm-sh/nvm)
 - Source code editor, [Visual Studio Code](https://code.visualstudio.com/) or similar
 
