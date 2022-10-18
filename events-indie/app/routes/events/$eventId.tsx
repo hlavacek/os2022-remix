@@ -1,6 +1,7 @@
-import { ActionFunction, LoaderArgs, redirect } from "@remix-run/node";
+import type { ActionFunction, LoaderArgs} from "@remix-run/node";
+import { redirect } from "@remix-run/node";
 import { json } from "@remix-run/node";
-import { Form, useActionData, useLoaderData } from "@remix-run/react";
+import { Form, useActionData, useCatch, useLoaderData } from "@remix-run/react";
 import invariant from "tiny-invariant";
 import RegistrationList from "~/components/RegistrationList";
 import { getEventById } from "~/models/event.server";
@@ -55,6 +56,7 @@ export const action: ActionFunction = async ({ request, params }) => {
   return redirect("/events");
 };
 
+
 export default function EventDetailsPage() {
   const data = useLoaderData<typeof loader>();
   const errors = useActionData();
@@ -80,4 +82,20 @@ export default function EventDetailsPage() {
       <RegistrationList />
     </main>
   );
+}
+
+export function ErrorBoundary({ error }: { error: Error }) {
+  console.error(error);
+
+  return <div>An unexpected error occurred: {error.message}</div>;
+}
+
+export function CatchBoundary() {
+  const caught = useCatch();
+
+  if (caught.status === 404) {
+    return <div>Event not found</div>;
+  }
+
+  throw new Error(`Unexpected caught response with status: ${caught.status}`);
 }
