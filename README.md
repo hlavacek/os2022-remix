@@ -36,7 +36,7 @@ Please clone this repository to your local machine. It will be used during the w
 
 For the purpose of this workshop we have deployed both applications to <fly.io>. They can be accessed via the following URLs:
 
-- <https://events-react-os2022.fly.dev/event/1>
+- <https://events-react-os2022.fly.dev/>
   - The [events-react](./events-react/) application
 - <https://events-indie-os2022.fly.dev/>
   - The [events-indie](./events-indie/) version of this application
